@@ -9,7 +9,7 @@ Feature: As a user I want to get a correct news titles on a News page
 
     And A user sees a headline's category name
     Then A user enters a headline's category name into a search bar
-    And A user should see a correct name of the very first article "D-Block Europe"
+    And A user should see a correct name of the very first article "World's End: World's End"
 
 
 

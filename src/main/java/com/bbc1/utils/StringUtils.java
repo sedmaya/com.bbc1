@@ -1,10 +1,10 @@
-package com.bbc1.junit.utils;
+package com.bbc1.utils;
 
 import java.util.Random;
 
 public class StringUtils {
     private static final String ALFA_NUMERICAL_ALL_CAPS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public static String getRandomString(int stringLength) {
         StringBuilder stringBuilder = new StringBuilder(stringLength);

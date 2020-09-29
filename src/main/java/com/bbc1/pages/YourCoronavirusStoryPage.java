@@ -1,6 +1,6 @@
-package com.bbc1.junit.pages;
+package com.bbc1.pages;
 
-import com.bbc1.junit.driver.DriverManager;
+import com.bbc1.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 

@@ -1,4 +1,4 @@
-package com.bbc1.junit.runner;
+package com.bbc1.runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
                 "json:target/bbc1-reports/BBCTests.json",
                 "junit:target/bbc1-reports/BBCTests.xml"},
         monochrome = true,
-        glue = "com.bbc1.junit",
-        features = "classpath:com.bbc1.junit.features"
+        glue = "com.bbc1",
+        features = "classpath:com.bbc1.features"
 )
 
 public class CucumberTestRunner {

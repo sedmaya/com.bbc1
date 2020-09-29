@@ -1,7 +1,5 @@
-package com.bbc1.junit.steps;
+package com.bbc1.steps;
 
-import com.bbc1.junit.pages.HomePage;
-import com.bbc1.junit.pages.NewsPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,40 +10,34 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static com.bbc1.pages.PageUtil.PageProvider.getHomePage;
+import static com.bbc1.pages.PageUtil.PageProvider.getNewsPage;
+
 public class NewsPageSteps {
-    HomePage homePage = new HomePage();
-    NewsPage newsPage = new NewsPage();
 
     @Given("A user opens the BBC website")
     public void goToTheBBC() {
-        homePage.openBBCHomePage();
+        getHomePage.openBBCHomePage();
     }
 
     @When("A user clicks on a News Tab")
     public void goToTheNewsPage() {
-        homePage.goToNewsPage();
+        getHomePage.goToNewsPage();
     }
 
     @Then("A user should see a headline news title {string}")
     public void verifyHeadlineNewsTitle(String title) {
-        AssertionsForClassTypes.assertThat(newsPage.actualHeadlineNewsTitle().equals(title))
+        AssertionsForClassTypes.assertThat(getNewsPage.actualHeadlineNewsTitle().equals(title))
                 .overridingErrorMessage("The title is not correct.")
                 .isTrue();
     }
 
-
-    @And("A user should see {int} secondary news titles")
-    public void secondaryNewsQuantity(int expectedSecondaryNewsTitles) {
-        Assertions.assertThat(newsPage.getSecondaryNewsTitlesList())
-                .as("The secondary news titles list size is not as expected")
-                .hasSize(expectedSecondaryNewsTitles);
-    }
-
     @And("The list of secondary news contains following titles")
     public void secondaryNewsTitles(List<String> expectedSecondaryNewsTitles) {
-        Assertions.assertThat(newsPage.getSecondaryNewsTitlesList())
+        Assertions.assertThat(getNewsPage.getSecondaryNewsTitlesList())
                 .extracting(WebElement::getText)
                 .as("The secondary news titles are not as expected")
                 .containsAll(expectedSecondaryNewsTitles);
     }
+
 }

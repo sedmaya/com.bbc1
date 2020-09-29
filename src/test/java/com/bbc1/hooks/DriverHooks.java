@@ -1,6 +1,7 @@
-package com.bbc1.junit.hooks;
+package com.bbc1.hooks;
 
-import com.bbc1.junit.driver.DriverManager;
+import com.bbc1.driver.DriverManager;
+import com.bbc1.driver.DriverName;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
@@ -8,7 +9,7 @@ public class DriverHooks {
 
     @Before
     public void setUp() {
-        DriverManager.getDriver("");
+        DriverManager.getDriver(DriverName.CHROME);
     }
 
     @After

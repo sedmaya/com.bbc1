@@ -1,4 +1,4 @@
-package com.bbc1.junit.driver;
+package com.bbc1.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -9,25 +9,27 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class DriverManager {
 
     private static WebDriver driver;
-    private static String driverType = "";
+
+    public static DriverName driverType;
 
     private DriverManager() {
     }
 
-    public static WebDriver getDriver(String driverName) {
+    public static WebDriver getDriver(DriverName driverName) {
         driverType = driverName;
         if (null == driver) {
             switch (driverName) {
-                case "firefox": {
+                case FIREFOX: {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
                 }
-                case "ie": {
+                case IE: {
                     WebDriverManager.iedriver().setup();
                     driver = new InternetExplorerDriver();
                     break;
                 }
+                case CHROME:
                 default: {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
@@ -40,13 +42,6 @@ public class DriverManager {
 
     public static WebDriver getDriver() {
         return driver == null ? getDriver(driverType) : driver;
-    }
-
-    public static void closeDriver() {
-        if (driver != null) {
-            driver.close();
-            driver = null;
-        }
     }
 
     public static void quitDriver() {

@@ -1,6 +1,6 @@
-package com.bbc1.junit.hooks;
+package com.bbc1.hooks;
 
-import com.bbc1.junit.driver.DriverManager;
+import com.bbc1.driver.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;

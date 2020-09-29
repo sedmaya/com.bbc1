@@ -1,4 +1,4 @@
-package com.bbc1.junit.pages;
+package com.bbc1.pages;
 
 import org.openqa.selenium.By;
 
